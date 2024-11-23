@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="company-details">
+    <h1>{{ object.name }}</h1>
+    <p><strong>Description:</strong> {{ object.description|truncatechars:30 }}</p>
+    <p><strong>Website:</strong> <a href="{{ object.website }}">{{ object.website }}</a></p>
+    <p><strong>Location:</strong> {{ object.location }}</p>
+
+    {% if object.logo %}
+        <img src="{{ object.logo.url }}" alt="Logo of {{ object.name }}" class="company-logo">
+    {% endif %}
+
+    <div class="jobs-list">
+        <h2>Jobs at {{ object.name }}</h2>
+        <ul>
+            {% for job in jobs %}
+                <li>{{ job.title }} - {{ job.location }} (Salary: {{ job.salary }})</li>
+            {% empty %}
+                <li>No jobs available for this company.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% if user.is_admin or user.profile.company_name == object.name %}
+        <div class="admin-buttons">
+            <a href="{% url 'company update' object.pk %}">Edit Company</a>
+            <a href="{% url 'company delete' object.pk %}">Delete Company</a>
+            <a href="{% url 'create job' %}">Create New Job</a>
+        
+        </div>
+    {% endif %}
+
+    <a href="{% url 'company list' %}" class="back-to-list">Back to Company List</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,1039 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Form Styles */
+
+/* Form Page Background and Centering */
+.form-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f8ff;
+    padding: 60px 20px;
+
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff; /* White background for the form */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+
+}
+
+/* Form Heading */
+.form-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.form-heading {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.heading-underline {
+    width: 50%;
+    height: 2px;
+    background-color: #007bff; /* Line color */
+    margin: 0 auto 15px;
+}
+
+/* Form Group */
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Submit Button */
+form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Back Link */
+.form-container p {
+    margin-top: 15px;
+}
+
+.form-container a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+/* Navigation Bar */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: #007bff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-left: auto;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+/* Register and Login button styles */
+.register-btn,
+.login-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+.register-btn:hover,
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Align logout button */
+form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: inline-block; /* Ensures the button behaves like a link */
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+form {
+    display: inline-block; /* Ensure the form aligns inline with the other nav items */
+    margin: 0; /* Remove the margin for the form */
+}
+
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+
+.nav-links li {
+    display: inline-block;
+}
+
+
+/* Register Choice Page */
+.register-choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+.register-choice h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.register-choice p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.choices .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 80%;
+    max-width: 300px;
+}
+
+.choices .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('https://www.trabajando.es/wp-content/uploads/2021/06/trabajando-empleo-formacion.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.search-form {
+    margin-top: 20px;
+}
+
+.search-form input {
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Job Categories Section */
+.job-categories {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.job-categories h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.category {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    width: 22%;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.category:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.category h3 a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.category h3 a:hover {
+    color: #007bff;
+    background-color: #f0f8ff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.category p {
+    font-size: 1rem;
+}
+
+/* Popular Companies Section */
+.popular-companies {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.popular-companies h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+.companies {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.company {
+    text-align: center;
+    width: 22%;
+    margin-bottom: 20px;
+}
+
+.company a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.company a:hover {
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.company img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.company p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 5px;
+}
+
+/*Companies List*/
+
+.companies-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.companies-container h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.create-company-btn {
+    display: inline-block;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.create-company-btn:hover {
+    background-color: #0056b3;
+}
+
+.companies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.company-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.company-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.company-card a {
+    text-decoration: none;
+    color: #333;
+}
+
+.company-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
+
+.company-name {
+    font-size: 1.5rem;
+    color: #0056b3; /* Different color for company name */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.company-card a:hover .company-name {
+    color: #007bff;
+}
+
+
+/* Company Details Page */
+
+.company-details {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.company-details h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.company-details p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.company-details a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.company-details a:hover {
+    text-decoration: underline;
+}
+
+.company-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.jobs-list {
+    margin-top: 30px;
+}
+
+.jobs-list h2 {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.jobs-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.jobs-list li {
+    font-size: 1rem;
+    color: #555;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.jobs-list li:last-child {
+    border-bottom: none;
+}
+
+/* Job Listings Styles */
+
+.jobs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.jobs-container h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.create-job-btn {
+    display: inline-block;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.create-job-btn:hover {
+    background-color: #0056b3;
+}
+
+.jobs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.job-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Adjust width for job cards */
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.job-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.job-card a {
+    text-decoration: none;
+    color: #333;
+}
+
+.job-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.job-title:hover {
+    color: #0056b3;
+}
+
+.job-company,
+.job-category,
+.job-location,
+.job-posted {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.job-company {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.pagination {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.page-links a {
+    padding: 10px;
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 5px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.page-links a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.page-links .current-page {
+    font-size: 1.1rem;
+    color: #333;
+    padding: 10px;
+    display: inline-block;
+}
+
+.page-links .current-page {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+
+/* Job Details Page */
+
+.job-details {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+.job-details h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.job-details p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.job-details .company-info {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.job-details .company-logo {
+    margin-top: 20px;
+}
+
+.job-details .company-logo-img {
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.job-details .admin-buttons {
+    margin-top: 20px;
+}
+
+.job-details .admin-buttons a {
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+}
+
+.job-details .admin-buttons a.delete-button {
+    background-color: #dc3545;
+}
+
+.job-details .back-to-list {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.job-details .back-to-list:hover,
+.job-details .admin-buttons a:hover {
+    opacity: 0.8;
+}
+
+/*Applications style */
+
+/* Applications Styles */
+
+.my-applications-page {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Grid layout for applications */
+.applications-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Flexible grid layout */
+  gap: 20px; /* Space between boxes */
+}
+
+.application-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center; /* Center-align content inside */
+}
+
+.application-info h3 {
+  font-size: 1.5rem;
+  color: #007BFF;
+  margin-bottom: 10px;
+}
+
+.application-info p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.application-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.view {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.withdraw {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.view:hover,
+.withdraw:hover {
+  opacity: 0.8;
+}
+
+
+
+/*Apply button Style*/
+.apply-btn {
+      display: inline-block;
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 20px;
+    margin: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.apply-btn:hover{
+    background-color: #0056b3; /* Darker blue */
+    transform: scale(1.05);
+}
+
+/* Delete Button Style */
+form .delete-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+form .delete-btn:hover {
+    background-color: #c0392b;
+}
+
+
+form p {
+    font-size: 1.2rem;
+    color: #e74c3c;
+    margin: 20px 0;
+    text-align: center;
+}
+
+
+/* Admin Buttons */
+.admin-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.admin-buttons a {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.admin-buttons a:hover {
+    background-color: #0056b3;
+}
+
+.back-to-list {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-to-list:hover {
+    text-decoration: underline;
+}
+
+
+/*Thank you section */
+
+.thank-you-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .thank-you-message {
+        background-color: #e8f8f5;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .thank-you-message h1 {
+        font-size: 36px;
+        color: #27ae60;
+    }
+
+    .thank-you-message p {
+        font-size: 18px;
+        color: #555;
+        line-height: 1.5;
+    }
+
+
+/*    Table style */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

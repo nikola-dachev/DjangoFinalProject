@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="my-applications-page">
+        <div class="container">
+            <div class="header">
+                <h1>Application Details</h1>
+            </div>
+
+            <div class="applications-list">
+                <div class="application-item">
+                    <!-- Job Information -->
+                    <div class="application-info">
+                        <h2>{{ object.job.title }}</h2>
+                        <p><strong>Company:</strong> {{ object.job.company }}</p>
+                        <p><strong>Location:</strong> {{ object.job.location }}</p>
+                        <p><strong>Salary:</strong> ${{ object.job.salary }}</p>
+                        <p><strong>Category:</strong> {{ object.job.category }}</p>
+                        <p><strong>Posted by:</strong> {{ object.job.posted_by.username }}</p>
+                        <p><strong>Posted on:</strong> {{ object.job.posted_date|date:"F j, Y" }}</p>
+                    </div>
+
+                    <!-- Application Information -->
+                    <div class="application-info">
+                        <p><strong>Status:</strong> {{ object.get_status_display }}</p>
+                        <p><strong>Applied on:</strong> {{ object.application_date|date:"F j, Y" }}</p>
+                        <p><strong>Skills:</strong> {{ object.skills }}</p>
+
+                        {% if object.resume %}
+                            <p><strong>Resume:</strong> 
+                                <a href="{{ object.resume.url }}" target="_blank">View Resume</a>
+                            </p>
+                        {% else %}
+                            <p><strong>Resume:</strong> Not uploaded</p>
+                        {% endif %}
+                    </div>
+
+                    <!-- Buttons inside the box -->
+                    <div class="application-actions">
+                        <a href="{% url 'withdraw application' object.pk %}" class="btn withdraw">Withdraw Application</a>
+                        <a href="{% url 'my applications' %}" class="btn back">Back to My Applications</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

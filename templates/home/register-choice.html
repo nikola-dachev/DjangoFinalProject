@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="register-choice">
+    <h1>Choose Your Registration Type</h1>
+    <p>Please select how you would like to register:</p>
+    <div class="choices">
+        <a href="{% url 'register seeker' %}" class="btn">Register as Job Seeker</a>
+        <a href="{% url 'register employer' %}" class="btn">Register as Employer</a>
+    </div>
+</div>
+{% endblock %}

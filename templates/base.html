@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream IT Job Hub</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{% url 'index' %}" class="logo">
+{#            <img src="{% static 'images/DreamJobHub logo.png' %}" style="height: 40px; margin-right: 10px;">#}
+            Dream IT Job Hub
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'company list' %}">Companies</a></li>
+            <li><a href="{% url 'all jobs' %}">Job Listings</a></li>
+            {% if user.is_authenticated %}
+                
+                {% if user.is_seeker %}
+                    <li><a href="{% url 'profile' user.pk %}">Job Seeker Profile</a></li>
+                    <li><a href="{% url 'my applications' %}">My Applications</a></li>
+                    
+                {% elif user.is_employer %}
+                    <li><a href="{% url 'profile' user.pk %}">Employer Profile</a></li>
+                    <li><a href="{% url 'employer view applications' %}">Applications</a></li>
+                    
+                {% elif user.is_admin %}
+                    <a href="{% url 'manage_users' %}">Manage Users</a>
+                    <a href="{% url 'manage_jobs' %}">Manage Jobs</a>
+                    <a href="{% url 'manage_applications' %}">Manage Applications</a>
+                     
+                {% endif %}
+                
+                <li>
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="register-btn">Logout</button>
+                    </form>
+                </li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register choice' %}" class="register-btn">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+{% block content %}
+{% endblock %}
+
+<footer>
+    <p>&copy; 2024 Dream IT Job Hub. All rights reserved.</p>
+    <p>
+        <a href="{% url 'contact us' %}">Contact Us</a> |
+        <a href="{% url 'terms of service' %}">Terms of Service</a>
+    </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Applications for Your Jobs</h2>
+    <div class="applications-list">
+        {% if object_list %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Applicant</th>
+                        <th>Status</th>
+                        <th>Applied On</th>
+                        <th>Skills</th>
+                        <th>Resume</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for application in object_list %}
+                        <tr>
+                            <td>{{ application.job.title }}</td>
+                            <td>{{ application.applicant.username }}</td>
+                            <td>{{ application.get_status_display }}</td>
+                            <td>{{ application.application_date|date:"F j, Y" }}</td>
+                            <td>{{ application.skills }}</td>
+                            <td>
+                                {% if application.resume %}
+                                    <a href="{{ application.resume.url }}" target="_blank">View Resume</a>
+                                {% else %}
+                                    No Resume Uploaded
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if application.status == 'Pending' %}
+                                    <form method="POST" action="{% url 'update application' application.pk %}" style="display: inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="status" value="Accepted">
+                                        <button type="submit" class="btn btn-success">Accept</button>
+                                    </form>
+                                    <form method="POST" action="{% url 'update application' application.pk %}" style="display: inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="status" value="Rejected">
+                                        <button type="submit" class="btn btn-danger">Reject</button>
+                                    </form>
+                                {% else %}
+                                    <span>{{ application.get_status_display }}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No applications submitted for your jobs yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="my-applications-page">
+        <div class="container">
+            <div class="header">
+                <h1>Are you sure you want to withdraw your application for this job?</h1>
+            </div>
+
+            <div class="applications-list">
+                <div class="application-item">
+                  
+                    <div class="application-info">
+                        <h2>{{ application.job.title }}</h2>
+                        <p><strong>Company:</strong> {{ application.job.company }}</p>
+                        <p><strong>Location:</strong> {{ application.job.location }}</p>
+                        <p><strong>Applied on:</strong> {{ application.application_date|date:"F j, Y" }}</p>
+                    </div>
+
+
+                    
+                    <div class="application-actions">
+                        <form method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn withdraw">Yes, Withdraw Application</button>
+                        </form>
+                        <a href="{% url 'my applications' %}" class="btn back">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

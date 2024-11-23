@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="form-page">
+    <div class="form-container">
+        
+        <h2 class="form-heading">Update Company</h2>
+        <div class="heading-underline"></div>
+        
+        
+        <h3 class="company-name">{{ object.name }}</h3>
+        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <button type="submit">Update Company</button>
+        </form>
+        
+        <p>
+            <a href="{% url 'company details' object.pk %}">Back to Company Details</a> |
+            <a href="{% url 'company list' %}">Back to Company List</a>
+        </p>
+    </div>
+</div>
+
+{% endblock %}

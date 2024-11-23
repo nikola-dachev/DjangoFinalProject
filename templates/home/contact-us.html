@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Contact Us</h1>
+
+    <p>If you have any questions or requests, feel free to reach out to us using the form below:</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        
+        {% if contact_form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field in contact_form %}
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        
+        <div class="form-group">
+            <label for="id_name">Your Name:</label>
+            {{ contact_form.name }}
+            {% if contact_form.name.errors %}
+                <div class="invalid-feedback">
+                    {% for error in contact_form.name.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        
+        <div class="form-group">
+            <label for="id_phone">Your Phone Number:</label>
+            {{ contact_form.phone }}
+            {% if contact_form.phone.errors %}
+                <div class="invalid-feedback">
+                    {% for error in contact_form.phone.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        
+        <div class="form-group">
+            <label for="id_email">Your Email Address:</label>
+            {{ contact_form.email }}
+            {% if contact_form.email.errors %}
+                <div class="invalid-feedback">
+                    {% for error in contact_form.email.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        
+        <div class="form-group">
+            <label for="id_request">Your Request:</label>
+            {{ contact_form.request }}
+            {% if contact_form.request.errors %}
+                <div class="invalid-feedback">
+                    {% for error in contact_form.request.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find Your Dream Job</h1>
+            <p>Your career starts here</p>
+            <form action="{% url 'jobs by search' %}" method="get" class="search-form">
+                <input type="text" name="searched_name" placeholder="What job are you looking for?" required>
+                <button type="submit">Search Jobs</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Job Categories Section -->
+    <section class="job-categories">
+        <div class="container">
+            <h2>Explore Job Categories</h2>
+            <div class="categories">
+                <div class="category">
+                    <h3><a href="{% url 'jobs by category' 'Software Development' %}">Software Development</a></h3>
+                    <p>Jobs in software development that create innovative applications.</p>
+                </div>
+                <div class="category">
+                    <h3><a href="{% url 'jobs by category' 'Data Analysis' %}">Data Science</a></h3>
+                    <p>Opportunities in data science to analyze trends and drive data-driven decision-making.</p>
+                </div>
+                <div class="category">
+                    <h3><a href="{% url 'jobs by category' 'Product Management' %}">Product Management</a></h3>
+                    <p>Product management roles that drive the development and success of products by aligning business goals with customer needs and team efforts.</p>
+                </div>
+                <div class="category">
+                    <h3><a href="{% url 'jobs by category' 'System Administration' %}">Sys Administration</a></h3>
+                    <p>IT support and administrative jobs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Companies Section -->
+    <section class="popular-companies">
+        <div class="container">
+            <h2>Popular Companies</h2>
+            <div class="companies">
+                {% for company in companies %}
+                    <div class="company">
+                        <a href="{% url 'company details' company.pk %}">
+                            <img src="{{ company.logo.url }}" alt="{{ company.name }} Logo">
+                            <p>{{ company.name }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</body>
+{% endblock %}
+
+
+

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jobs-container">
+    <h1>Job Listings</h1>
+
+    {% if request.user.is_authenticated and request.user.is_employer or request.user.is_admin %}
+        <a class="create-job-btn" href="{% url 'create job' %}">Post New Job</a>
+    {% endif %}
+
+    <div class="jobs-grid">
+        {% for job in object_list %}
+            <div class="job-card">
+                <a href="{% url 'job details' job.pk %}">
+                    <h3 class="job-title">{{ job.title }}</h3>
+                    <p class="job-company">{{ job.company.name }}</p>
+                    <p class="job-category">{{ job.category }}</p>
+                    <p class="job-location">{{ job.location }}</p>
+                    <p class="job-posted">{{ job.posted_date|date:"Y-m-d" }}</p>
+                </a>
+            </div>
+        {% empty %}
+            <p>No jobs found.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% if is_paginated %}
+    <div class="pagination">
+        <span class="page-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current-page">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endif %}
+
+{% endblock %}

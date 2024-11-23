@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2 class="form-heading">Apply for Job</h2>
+            <div class="heading-underline"></div>
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- Skills Field -->
+                <div class="form-group">
+                    {{ form.skills }}
+                    {% if form.skills.errors %}
+                        <div class="error-text">
+                            {% for error in form.skills.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Resume Field -->
+                <div class="form-group">
+                    {{ form.resume }}
+
+                    {% if form.resume.help_text %}
+                        <small>{{ form.resume.help_text }}</small>
+                    {% endif %}
+
+                    {% if form.resume.errors %}
+                        <div class="error-text">
+                            {% for error in form.resume.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit">Submit Application</button>
+            </form>
+
+            <!-- Back Link -->
+            <p class="back-link">
+                <a href="/jobs">Back to Jobs</a>
+            </p>
+        </div>
+    </div>
+</body>
+{% endblock %}

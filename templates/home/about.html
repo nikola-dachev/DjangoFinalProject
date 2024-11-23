@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DreamITJobHub - About Us</title>
+    <link rel="stylesheet" href="{% static 'css/style-about.css' %}">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    {% block content %}
+    
+    <!-- About Us Section -->
+    <section class="about-us">
+        <div class="container">
+            <h1>About Dream IT Job Hub</h1>
+            <p>
+                Dream IT Job Hub is a leading job platform dedicated to connecting IT professionals with the most promising career opportunities. Our mission is to provide job seekers with the resources, tools, and support they need to find their dream job in the tech industry.
+            </p>
+            <p>
+                We believe that finding the right job is more than just matching skills to a position. It's about helping individuals grow their careers and make meaningful contributions in their field.
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="our-mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>
+                At Dream IT Job Hub, our mission is to empower IT professionals by helping them find fulfilling jobs that match their skills and aspirations. We are committed to providing a platform that supports both job seekers and employers, enabling a perfect match between talent and opportunity.
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="our-values">
+        <div class="container">
+            <h2>Our Values</h2>
+            <ul>
+                <li><strong>Integrity:</strong> We believe in honesty and transparency in all our dealings.</li>
+                <li><strong>Innovation:</strong> We continuously seek out new ways to improve the job-seeking process.</li>
+                <li><strong>Collaboration:</strong> We work together with job seekers and employers to ensure success for both.</li>
+                <li><strong>Excellence:</strong> We strive to provide top-notch services and resources for our users.</li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}
+
+    <!-- Footer -->
+    
+</body>
+
+</html>

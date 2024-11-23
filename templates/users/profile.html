@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container company-details">
+    <h1>Your Profile</h1>
+    <h3>Username: {{ user.username }}</h3>
+    <h4>Email: {{ user.email }}</h4>
+
+    {% if user.is_seeker %}
+        <p><strong>Skills:</strong> {{ user.profile.skills }}</p>
+        {% if user.profile.resume %}
+            <p><strong>Resume:</strong> <a href="{{ user.profile.resume.url }}">Download</a></p>
+        {% endif %}
+    {% elif user.is_employer %}
+        <p><strong>Company Name:</strong> {{ user.profile.company_name }}</p>
+        <p><strong>Website:</strong> <a href="{{ user.profile.website }}">{{ user.profile.website }}</a></p>
+        {% if user.profile.logo %}
+            <img src="{{ user.profile.logo.url }}" alt="Company Logo" class="company-logo" />
+        {% endif %}
+    {% endif %}
+
+
+    <div class="admin-buttons">
+        <a href="{% url 'edit profile' user.pk %}" class="btn">Edit Profile</a>
+        <a href="{% url 'delete profile' user.pk %}" class="btn delete-btn">Delete Profile</a>
+        {% if user.is_employer %}
+            <a href="{% url 'create job' %}" class="btn">Create New Job</a>
+        {% endif %}
+    </div>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container logged-out-message">
+    <h2 class="heading">You have been logged out</h2>
+    <p>To log in again, click below:</p>
+    <p><a href="{% url 'login' %}" class="login-link">Login again</a></p>
+
+    
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="register-btn">Logout</button>
+    </form>
+</div>
+{% endblock %}

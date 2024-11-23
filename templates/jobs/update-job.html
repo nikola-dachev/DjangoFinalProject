@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-page">
+    <div class="form-container">
+        <h2 class="form-heading">Update Job</h2>
+        <div class="heading-underline"></div>
+
+        <h3 class="job-title">{{ object.title }}</h3>
+
+        <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <button type="submit">Update Job</button>
+        </form>
+
+        <p>
+            <a href="{% url 'job details' object.pk %}">Back to Job Details</a> |
+            <a href="{% url 'all jobs' %}">Back to Job List</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

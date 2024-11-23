@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Edit Profile</h2>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+                <div class="form-group">
+                    {{ form.username }}
+                    {% if form.username.errors %}
+                        <div class="error-text">
+                            {% for error in form.username.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <div class="error-text">
+                            {% for error in form.email.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Password Fields (Optional) -->
+                <div class="form-group">
+                    {{ form.old_password }}
+                    {% if form.old_password.errors %}
+                        <div class="error-text">
+                            {% for error in form.old_password.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.new_password }}
+                    {% if form.new_password.errors %}
+                        <div class="error-text">
+                            {% for error in form.new_password.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.confirm_new_password }}
+                    {% if form.confirm_new_password.errors %}
+                        <div class="error-text">
+                            {% for error in form.confirm_new_password.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Skills Field (For Job Seekers) -->
+                {% if form.skills %}
+                <div class="form-group">
+                    {{ form.skills }}
+                    {% if form.skills.errors %}
+                        <div class="error-text">
+                            {% for error in form.skills.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <!-- Company Name Field (For Employers) -->
+                {% if form.company_name %}
+                <div class="form-group">
+                    {{ form.company_name }}
+                    {% if form.company_name.errors %}
+                        <div class="error-text">
+                            {% for error in form.company_name.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <!-- Website Field (For Employers) -->
+                {% if form.website %}
+                <div class="form-group">
+                    {{ form.website }}
+                    {% if form.website.errors %}
+                        <div class="error-text">
+                            {% for error in form.website.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <!-- Company Logo Field (For Employers) -->
+                {% if form.logo %}
+                <div class="form-group">
+                    {{ form.logo }}
+                    {% if form.logo.errors %}
+                        <div class="error-text">
+                            {% for error in form.logo.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <!-- Submit Button -->
+                <button type="submit" class="register-btn">Save Changes</button>
+            </form>
+
+            <p>Want to cancel? <a href="{% url 'profile' pk=request.user.pk %}">Go back to your profile</a></p>
+        </div>
+    </div>
+</body>
+{% endblock %}

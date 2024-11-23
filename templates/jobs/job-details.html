@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="job-details">
+    
+    <h1>{{ object.title }}</h1>
+
+    {% if object.company.logo %}
+{#        <div class="company-logo">#}
+            <a href="{% url 'company details' object.company.pk %}">
+                <img src="{{ object.company.logo.url }}" alt="Logo of {{ object.company.name }}" class="company-logo-img">
+            </a>
+{#        </div>#}
+    {% endif %}
+    
+    
+    <p><strong>Description:</strong> {{ object.description }}</p>
+    <p><strong>Location:</strong> {{ object.location }}</p>
+    <p><strong>Salary:</strong> ${{ object.salary }}</p>
+    <p><strong>Category:</strong> {{ object.category }}</p>
+    <p><strong>Posted by:</strong> {{ object.posted_by.username }}</p>
+    <p><strong>Posted on:</strong> {{ object.posted_date|date:"F j, Y" }}</p>
+
+    <!-- Apply Button for authenticated job seekers -->
+    {% if user.is_authenticated and user.is_seeker %}
+        <a href="{% url 'apply' object.pk %}" class="apply-btn">Apply for Job</a>
+    {% endif %}
+    
+
+    <!-- Admin/Job Owner Actions -->
+    <div class="admin-buttons">
+        {% if user.is_admin or user == object.posted_by %}
+            <a href="{% url 'job edit' object.pk %}" class="edit-button">Edit Job</a>
+            <a href="{% url 'job delete' object.pk %}" class="delete-button">Delete Job</a>
+        {% endif %}
+    </div>
+
+    <!-- Back to Job Listings -->
+    <a href="{% url 'all jobs' %}" class="back-to-list">Back to Job Listings</a>
+</div>
+
+{% endblock %}

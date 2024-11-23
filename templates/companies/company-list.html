@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="companies-container">
+    <h1>Companies</h1>
+    
+    
+    {% if request.user.is_authenticated and request.user.is_employer or request.user.is_admin %}
+        <a class="create-company-btn" href="{% url 'company create' %}">Create New Company</a>
+    {% endif %}
+
+    <div class="companies-grid">
+        {% for company in object_list %}
+            <div class="company-card">
+                <a href="{% url 'company details' company.pk %}">
+                    <img src="{{ company.logo.url }}" alt="{{ company.name }} Logo" class="company-logo">
+                    <h3 class="company-name">{{ company.name }}</h3>
+                </a>
+            </div>
+        {% empty %}
+            <p>No companies found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
