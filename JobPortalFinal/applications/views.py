@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView, CreateView, DeleteView, U
 from .forms import JobApplicationCreateForm
 from .models import Application
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -124,5 +124,5 @@ class UpdateApplicationView(LoginRequiredMixin, UpdateView):
         messages.success(self.request, "Your application has been updated successfully.")
         return super().form_valid(form)
 
-    def get_succcess_url(self):
+    def get_success_url(self):
         return reverse_lazy('employer view applications')

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container company-details">
+    <h1>User Details</h1>
+    <h3>Username: {{ object.username }}</h3>
+    <h4>Email: {{ object.email }}</h4>
+
+    {% if object.is_seeker %}
+        <p><strong>Skills:</strong> {{ object.profile.skills }}</p>
+        {% if object.profile.resume %}
+            <p><strong>Resume:</strong> <a href="{{ object.profile.resume.url }}">Download</a></p>
+        {% endif %}
+    {% elif object.is_employer %}
+        <p><strong>Company Name:</strong> {{ object.profile.company_name }}</p>
+        <p><strong>Website:</strong> <a href="{{ object.profile.website }}">{{ object.profile.website }}</a></p>
+        {% if object.profile.logo %}
+            <img src="{{ object.profile.logo.url }}" alt="Company Logo" class="company-logo" />
+        {% endif %}
+    {% endif %}
+
+    <div class="admin-buttons">
+        <a href="{% url 'all users admin' %}" class="btn">Back to User List</a>
+        <a href="{% url 'delete profile admin' object.pk %}" class="btn">Delete User</a>
+
+    </div>
+</div>
+
+{% endblock %}

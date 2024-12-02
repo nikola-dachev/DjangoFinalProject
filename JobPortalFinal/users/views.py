@@ -3,10 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy,reverse
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
-
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 
 from JobPortalFinal.users.forms import SeekerRegisterForm, EmployerRegisterForm, UpdateSeekerForm, UpdateEmployerForm
 from JobPortalFinal.users.models import CustomUser
@@ -92,3 +92,39 @@ class DeleteProfileView(LoginRequiredMixin, DeleteView):
 @login_required
 def redirect_to_profile(request):
     return redirect('profile', pk=request.user.pk)
+
+
+class ListAdminCustomUserView(LoginRequiredMixin,ListView):
+    model = CustomUser
+    template_name = 'users/admin-users-list.html'
+
+    def get_queryset(self):
+        if self.request.user.is_admin():
+            return CustomUser.objects.all()
+
+        return CustomUser.objects.none()
+
+class DetailAdminCustomUserView(LoginRequiredMixin,DetailView):
+    model = CustomUser
+    template_name = 'users/admin-users-details.html'
+
+    def get_object(self, queryset=None):
+        user_pk = self.kwargs.get('pk')
+        if self.request.user.is_admin() and user_pk:
+            return get_object_or_404(CustomUser, pk=user_pk)
+        else:
+            raise PermissionDenied("You do not have permission to view this page or the user is incorrect.")
+
+
+class DeleteProfileAsAdminView(LoginRequiredMixin, DeleteView):
+    model = CustomUser
+    template_name = 'users/admin-delete-user.html'
+    success_url = reverse_lazy('all users admin')
+
+
+    def get_object(self, queryset=None):
+        user_pk = self.kwargs.get('pk')
+        if self.request.user.is_admin() and user_pk:
+            return get_object_or_404(CustomUser, pk=user_pk)
+        else:
+            raise PermissionDenied("You do not have permission to view this page or the user is incorrect.")

@@ -11,6 +11,13 @@ class CustomUser(AbstractUser):
 
     user_type = models.IntegerField(choices=USER_TYPE_CHOICES)
 
+    def save(self, *args, **kwargs):
+        if self.is_superuser:
+            self.user_type = 3
+
+        return super().save(*args, **kwargs)
+
+
     def is_seeker(self):
         return self.user_type == 1
 

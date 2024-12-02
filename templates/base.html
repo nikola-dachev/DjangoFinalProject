@@ -31,9 +31,8 @@
                     <li><a href="{% url 'employer view applications' %}">Applications</a></li>
                     
                 {% elif user.is_admin %}
-                    <a href="{% url 'manage_users' %}">Manage Users</a>
-                    <a href="{% url 'manage_jobs' %}">Manage Jobs</a>
-                    <a href="{% url 'manage_applications' %}">Manage Applications</a>
+                    <a href="{% url 'all users admin' %}">Manage Users</a>
+                    <a href="#">Manage Jobs</a>
                      
                 {% endif %}
                 
