@@ -11,7 +11,7 @@ class SeekerRegisterForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'password1', 'password2', 'resume', 'skills']
+        fields = ['username', 'email', 'password1', 'password2', 'resume','skills' ]
 
 
     def save(self, commit=True):
