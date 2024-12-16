@@ -63,6 +63,12 @@ class EditProfileView(LoginRequiredMixin, UpdateView):
     model = CustomUser
     template_name = 'users/edit-profile.html'
 
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if obj != self.request.user:
+            raise PermissionDenied("You are not allowed to edit this profile.")
+        return obj
+
     def get_success_url(self):
         return reverse_lazy('profile', kwargs={'pk': self.object.pk})
 

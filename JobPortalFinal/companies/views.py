@@ -42,6 +42,7 @@ class CompanyUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
     template_name = 'companies/update-company.html'
     form_class = UpdateCompanyForm
     success_url = reverse_lazy('company list')
+    
 
     def test_func(self):
         company = self.get_object()

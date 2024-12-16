@@ -23,10 +23,10 @@ class JobApplicationCreateView(LoginRequiredMixin, CreateView):
         return reverse('all jobs')
 
     # i need to fetch the job so i pass it to the template to send me back to the particular job
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['job'] = get_object_or_404(Job, pk=self.kwargs['pk'])
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['job'] = get_object_or_404(Job, pk=self.kwargs['pk'])
+    #     return context
 
 
     def form_valid(self, form):
